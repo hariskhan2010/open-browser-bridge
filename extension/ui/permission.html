@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Allow browser action?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stack">
+    <h1><img class="logo" src="../icons/icon48.png" alt="">An AI agent wants to use this site</h1>
+    <div class="card stack">
+      <div><span class="muted">Site</span><br><strong id="host" class="mono"></strong></div>
+      <div><span class="muted">Action</span><br><span id="kind"></span></div>
+      <div id="summaryRow"><span class="muted">What it will do</span><br><span id="summary"></span></div>
+      <div class="muted small">Session <span id="client" class="mono"></span></div>
+    </div>
+    <div id="sensitive" class="warn small" hidden>This site is on your <strong>always ask</strong> list, so it can only be allowed one action at a time.</div>
+    <div class="stack">
+      <button class="primary wide" data-d="session" id="sessionBtn">Allow all actions on this site for this session</button>
+      <div class="row">
+        <button data-d="once" style="flex:1">Allow this action</button>
+        <button data-d="always" id="alwaysBtn" style="flex:1">Always allow this site</button>
+      </div>
+      <button class="danger wide" data-d="deny">Deny</button>
+    </div>
+    <p class="muted small">Closing this window or waiting 2 minutes denies the request.</p>
+  </main>
+  <script src="permission.js"></script>
+</body>
+</html>

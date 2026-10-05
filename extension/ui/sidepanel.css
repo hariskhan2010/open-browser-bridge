@@ -1,0 +1,39 @@
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; }
+.bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.bar .title { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.bar .title span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+button.icon { width: 32px; height: 32px; padding: 0; font-size: 16px; line-height: 1; }
+.pane { flex: 1; overflow-y: auto; padding: 12px; }
+#settings { display: grid; gap: 10px; align-content: start; }
+#settings[hidden], #chat[hidden] { display: none; }
+#messages { display: grid; gap: 10px; }
+.msg { max-width: 100%; overflow-wrap: anywhere; }
+.msg.user { justify-self: end; background: var(--accent); color: var(--accent-fg); padding: 8px 12px; border-radius: 14px 14px 4px 14px; white-space: pre-wrap; max-width: 88%; }
+.msg.assistant { line-height: 1.55; }
+.msg.assistant p { margin: 0 0 8px; }
+.msg.assistant pre { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px; overflow-x: auto; font-size: 12px; }
+.msg.assistant code { background: var(--card); border-radius: 4px; padding: 1px 4px; }
+.msg.assistant pre code { background: none; padding: 0; }
+.msg.error { color: var(--danger); background: var(--card); border: 1px solid var(--danger); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+details.tool { border: 1px solid var(--line); border-radius: 8px; background: var(--card); font-size: 12px; }
+details.tool summary { cursor: pointer; padding: 6px 10px; display: flex; gap: 6px; align-items: center; list-style: none; }
+details.tool summary::-webkit-details-marker { display: none; }
+details.tool .body { padding: 0 10px 8px; white-space: pre-wrap; font-family: ui-monospace, Consolas, monospace; max-height: 220px; overflow: auto; }
+details.tool img { max-width: 100%; border-radius: 6px; border: 1px solid var(--line); margin-top: 6px; }
+.tool .status { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.tool .status.run { background: var(--accent); animation: pulse 1s infinite; }
+.tool .status.ok { background: var(--ok); }
+.tool .status.err { background: var(--danger); }
+@keyframes pulse { 50% { opacity: .3; } }
+.perm { border: 1px solid var(--accent); border-radius: 10px; padding: 10px; display: grid; gap: 8px; background: var(--warn-bg); color: var(--fg); }
+.perm .row button { flex: 1; }
+.empty { text-align: center; padding: 32px 12px; }
+.composer { border-top: 1px solid var(--line); padding: 10px 12px; display: grid; gap: 8px; position: relative; }
+.composer textarea { resize: none; min-height: 44px; max-height: 160px; }
+.composer-actions { justify-content: flex-end; }
+.ellipsis { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slash { position: absolute; bottom: 100%; left: 12px; right: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15); max-height: 200px; overflow-y: auto; }
+.slash button { display: block; width: 100%; text-align: left; border: 0; border-radius: 0; background: none; }
+.slash button:hover, .slash button.active { background: var(--card); }
+.typing::after { content: '▍'; animation: pulse 1s infinite; }

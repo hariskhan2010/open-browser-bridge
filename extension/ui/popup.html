@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Open Browser Bridge</title>
+  <link rel="stylesheet" href="style.css">
+  <style>body { width: 340px; }</style>
+</head>
+<body>
+  <main class="stack">
+    <h1><img class="logo" src="../icons/icon48.png" alt="">Open Browser Bridge</h1>
+    <div class="card stack">
+      <div class="row"><span id="dot" class="dot"></span><strong id="state">Checking…</strong></div>
+      <div class="muted small" id="detail"></div>
+      <div class="small">Browser name: <strong id="device"></strong></div>
+      <div class="small">Agent sessions connected: <strong id="clients">0</strong></div>
+    </div>
+    <div id="pausedBox" class="warn small" hidden>Paused. Agents cannot act until you resume.</div>
+    <button class="primary wide" id="sidepanel">Open side panel chat</button>
+    <button class="danger wide" id="stop">Stop all agent actions</button>
+    <button class="primary wide" id="resume" hidden>Resume</button>
+    <div class="row">
+      <button id="reconnect" style="flex:1">Reconnect</button>
+      <button id="options" style="flex:1">Settings</button>
+    </div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

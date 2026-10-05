@@ -1,0 +1,19 @@
+{
+  "name": "open-browser-bridge",
+  "version": "0.2.0",
+  "description": "Open-source browser control for any AI agent. Chrome extension + native host + MCP server with a Claude-in-Chrome-compatible tool surface.",
+  "license": "Apache-2.0",
+  "private": true,
+  "bin": { "open-browser-bridge-mcp": "host/mcp-server.js" },
+  "scripts": {
+    "setup": "node install.js",
+    "uninstall-host": "node uninstall.js",
+    "mcp": "node host/mcp-server.js",
+    "mcp:http": "node host/mcp-server.js --http",
+    "icons": "node scripts/make-icons.js",
+    "package": "node scripts/package-store.js",
+    "test": "node --test test/*.test.js test/*.test.mjs",
+    "e2e": "node test/e2e-live.js"
+  },
+  "engines": { "node": ">=18" }
+}

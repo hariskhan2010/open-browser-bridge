@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Browser Bridge</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="bar">
+    <img class="logo" src="../icons/icon48.png" alt="">
+    <div class="title">
+      <strong>Browser agent</strong>
+      <span id="modelLabel" class="muted small"></span>
+    </div>
+    <button id="newChat" class="icon" title="New chat" aria-label="New chat">＋</button>
+    <button id="openSettings" class="icon" title="Settings" aria-label="Settings">⚙</button>
+  </header>
+
+  <section id="settings" class="pane" hidden>
+    <h2>Model</h2>
+    <label class="stack">Provider
+      <select id="provider"></select>
+    </label>
+    <label class="stack">Model
+      <input type="text" id="model" list="modelList" autocomplete="off">
+      <datalist id="modelList"></datalist>
+    </label>
+    <label class="stack">API key
+      <input type="password" id="apiKey" autocomplete="off" placeholder="Stored only in this browser">
+    </label>
+    <label class="stack">Base URL <span class="muted small">(optional; e.g. http://localhost:11434/v1 for Ollama, https://openrouter.ai/api/v1)</span>
+      <input type="text" id="baseUrl" autocomplete="off">
+    </label>
+    <p class="muted small">Your key is stored in this browser's extension storage and sent only to the provider you choose. Page content you ask about is sent to that provider.</p>
+    <div class="row"><button class="primary" id="saveSettings">Save</button><button id="closeSettings">Cancel</button></div>
+  </section>
+
+  <main id="chat" class="pane">
+    <div id="messages" aria-live="polite"></div>
+    <div id="empty" class="empty">
+      <p><strong>Ask me to do something in this tab.</strong></p>
+      <p class="muted small">"Summarize this page" · "Find the cheapest flight on this page" · "Fill this form with my details from the notes tab"</p>
+      <p class="muted small">Type <code>/</code> to use a saved shortcut.</p>
+    </div>
+  </main>
+
+  <footer class="composer">
+    <div id="slashMenu" class="slash" hidden></div>
+    <textarea id="input" rows="2" placeholder="Message the browser agent…"></textarea>
+    <div class="row composer-actions">
+      <span id="tabLabel" class="muted small ellipsis"></span>
+      <button id="stop" class="danger" hidden>Stop</button>
+      <button id="send" class="primary">Send</button>
+    </div>
+  </footer>
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>

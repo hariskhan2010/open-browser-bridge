@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Connect this browser?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stack">
+    <h1><img class="logo" src="../icons/icon48.png" alt="">Use this browser for the AI agent?</h1>
+    <p class="muted">An agent session asked you to pick which browser it should control. Click Connect in the browser you want.</p>
+    <label class="stack">Browser name<input type="text" id="name" maxlength="80"></label>
+    <div class="row">
+      <button class="primary" id="connect" style="flex:1">Connect</button>
+      <button id="cancel" style="flex:1">Not this one</button>
+    </div>
+  </main>
+  <script src="connect.js"></script>
+</body>
+</html>

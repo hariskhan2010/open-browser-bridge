@@ -1,0 +1,4 @@
+{
+  "_comment": "Extension IDs assigned by the Chrome Web Store / Edge Add-ons. install.js allows these in the native host manifest in addition to the unpacked developer ID.",
+  "ids": []
+}

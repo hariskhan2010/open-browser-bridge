@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Open Browser Bridge settings</title>
+  <link rel="stylesheet" href="style.css">
+  <style>main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }</style>
+</head>
+<body>
+  <main>
+    <h1><img class="logo" src="../icons/icon48.png" alt="">Open Browser Bridge settings</h1>
+    <p class="muted">Lets AI agents (Claude Code, Codex, Gemini CLI, Cursor and any MCP client) control this browser in their own tab group.</p>
+
+    <h2>This browser</h2>
+    <div class="card row">
+      <input type="text" id="deviceName" style="flex:1" maxlength="80">
+      <button id="saveName">Rename</button>
+    </div>
+
+    <h2>Permission mode</h2>
+    <div class="card stack">
+      <label class="row"><input type="radio" name="mode" value="ask"> <span><strong>Ask before acting on a new site</strong> (recommended)</span></label>
+      <label class="row"><input type="radio" name="mode" value="skip"> <span><strong>Skip permission prompts</strong>. Agents act on any site that isn't blocked. Sites on the "always ask" list still prompt.</span></label>
+    </div>
+
+    <h2>Where to ask</h2>
+    <div class="card stack">
+      <label class="row"><input type="radio" name="promptIn" value="agent"> <span><strong>In the agent's own window</strong> (recommended), e.g. Claude Code's terminal or the side panel chat. If the agent app can't show questions, a browser pop-up is used.</span></label>
+      <label class="row"><input type="radio" name="promptIn" value="browser"> <span><strong>Always in a browser pop-up window</strong></span></label>
+    </div>
+
+    <h2>Site lists</h2>
+    <div class="card stack">
+      <p class="small muted">One host per line. <code>*</code> is a wildcard, e.g. <code>*.example.com</code> or <code>*bank*</code>. A plain host also matches its subdomains.</p>
+      <label class="stack"><strong>Always allowed</strong><textarea id="alwaysAllow" class="mono"></textarea></label>
+      <label class="stack"><strong>Always ask</strong> <span class="small muted">(sensitive sites: one action at a time, never auto-allowed)</span><textarea id="alwaysAsk" class="mono"></textarea></label>
+      <label class="stack"><strong>Blocked</strong> <span class="small muted">(agents can never act here)</span><textarea id="blocked" class="mono"></textarea></label>
+      <div class="row"><button class="primary" id="saveLists">Save lists</button><span id="saved" class="small muted"></span></div>
+    </div>
+
+    <h2>Shortcuts</h2>
+    <div class="card stack">
+      <p class="small muted">Saved prompts that agents can list with <code>shortcuts_list</code> and run with <code>shortcuts_execute</code>.</p>
+      <div id="shortcutList" class="stack"></div>
+      <div class="stack">
+        <input type="text" id="scCommand" placeholder="command, e.g. summarize">
+        <input type="text" id="scDesc" placeholder="description">
+        <textarea id="scPrompt" placeholder="Instructions the agent should carry out"></textarea>
+        <label class="row small"><input type="checkbox" id="scWorkflow"> Multi-step workflow</label>
+        <button id="scAdd">Add shortcut</button>
+      </div>
+    </div>
+
+    <h2>Recent agent actions</h2>
+    <div class="card"><table><thead><tr><th>Time</th><th>Tool</th><th>Summary</th></tr></thead><tbody id="log"></tbody></table></div>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

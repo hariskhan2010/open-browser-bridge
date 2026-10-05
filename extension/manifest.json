@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Open Browser Bridge",
+  "short_name": "OBB",
+  "version": "0.2.0",
+  "description": "Let any AI agent (Claude Code, Codex, Gemini CLI, Cursor, any MCP client) use your browser in its own tab group.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "debugger",
+    "tabs",
+    "tabGroups",
+    "scripting",
+    "storage",
+    "nativeMessaging",
+    "alarms",
+    "downloads",
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "ui/sidepanel.html"
+  },
+  "commands": {
+    "open-side-panel": {
+      "suggested_key": { "default": "Alt+Shift+A" },
+      "description": "Open the browser agent side panel"
+    }
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Open Browser Bridge",
+    "default_popup": "ui/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "options_page": "ui/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzhJiiHi6VyZwLCkOGNhC0BT6FeU8uGLY0f0jCnE3iL3N6Pk/e63vFduYb8PQbwt4OIbZhkwQom0Z6gFTg01wSJX9/FV3bwS76EuaFKujB0/qP7lgTO7AvxRNnQHTKTaGk7keBdIpn0sU3ItQTSHUnQUJIjwCgqshQWC9oksDnEuQD3hpNzVGCrL1PuZlsecs47csN3a7uPYfy5/LE9ZfEjm/8UzTD9EsWIV6IlGdATCPj+Eg17Fx/lDpwgB9Qqb+5Hec24F5wr0sJirvNeretR51r87pEJQsOWqbJdUg3OwgX66/04OvDpZOI+6cGeRo/ZU0KdGAkpyDoo5+4xTkswIDAQAB"
+}
